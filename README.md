@@ -1,5 +1,4 @@
 # derpDNS 
-***
 
 The derpest dynamic DNS updater on the derp web.
 
@@ -94,6 +93,5 @@ It's simpler in Linux. You only have to edit `/etc/crontab` and add the followin
 It should work right away.
 
 ## TODO
-***
 - [ ] Find out an easy way to set up a system scheduled task on Windows.
 - [ ] Anything you might find.
