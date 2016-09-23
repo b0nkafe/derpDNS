@@ -40,17 +40,23 @@ func main() {
 	if len(os.Args) != 2 {
 		log.Fatalf("Usage: %s config_file", os.Args[0])
 	}
+	
 	config, err := loadConfig(os.Args[1])
 	if err != nil {
-		log.Fatalln("Error parsing config file:", err)
+		log.Fatalln("Error parsing config file: ", err)
 	}
+	
 	c, err := ovh.NewClient(config.OVH.Endpoint, config.OVH.ApplicationKey, config.OVH.ApplicationSecret, config.OVH.ConsumerKey)
-
 	if err != nil {
 		log.Fatalln("Error initializing OVH Client: ", err)
 	}
 
-	var record = Details{Zone: config.Record.Zone, SubDomain: config.Record.SubDomain, FieldType: config.Record.RecordType}
+	var record = Details{
+		Zone: config.Record.Zone, 
+		SubDomain: config.Record.SubDomain, 
+		FieldType: config.Record.RecordType
+	}
+	
 	record.Init(c, record)
 	record.UpdateRecord(c, record)
 
@@ -95,7 +101,6 @@ func loadConfig(file string) (Config, error) {
 	if config.Record.SubDomain == "" || config.Record.Zone == "" || config.Record.RecordType == "" || config.OVH.ApplicationKey == "" || config.OVH.ApplicationSecret == "" || config.OVH.ConsumerKey == "" || config.OVH.Endpoint == "" {
 		var err = errors.New("DERP! Please check config file, somehting's missing!")
 		return Config{}, err
-
 	}
 
 	return *config, nil
