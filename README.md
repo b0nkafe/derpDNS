@@ -8,6 +8,12 @@ derpDNS simply updates a DNS record of the type you decide. It's main purpose is
 
 derpDNS is expected to be run in a scheduled task. Below you'll find detailed instructions about how to schedule a task on macOS, Linux and ~~Windows~~. They should work even if no user is logged in.
 
+## Installation
+
+```
+% go get github.com/bheras/derpDNS
+```
+
 ## Usage
 
 ```
