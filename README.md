@@ -90,7 +90,7 @@ It's simpler in Linux. You only have to edit `/etc/crontab` and add the followin
 0 * * * * your_username cd /path/to/derpDNS/binary && /path/to/derpDNS/binary /path/to/derpDNS/config | logger -t derpDNS
 ```
 
-It should work right away.
+It should work right away and run `derpDNS` every hour and log to syslog.
 
 ## TODO
 - [ ] Find out an easy way to set up a system scheduled task on Windows.
