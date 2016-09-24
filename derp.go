@@ -69,6 +69,9 @@ func (d *Details) GetActualIP() {
 	}
 	defer resp.Body.Close()
 	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		log.Fatalln("Error reading file contents: ", err)
+	}
 	d.ActualIP = strings.TrimSpace(string(body))
 	return
 }
