@@ -1,0 +1,19 @@
+language: go
+
+go:
+- 1.5
+- 1.6
+- 1.7
+
+before_install:
+- go get github.com/golang/lint/golint
+- go get github.com/ovh/go-ovh/ovh
+
+
+script:
+# Test Code quality
+- $HOME/gopath/bin/golint ./...
+
+# Test buildable on most common platforms, beyond Linux
+- GOOS=darwin go build ./...
+- GOOS=windows go build ./...
