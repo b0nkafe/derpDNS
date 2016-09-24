@@ -62,11 +62,13 @@ func main() {
 
 }
 
+// The Config struct type is the top level element for a Config type. It has two struct attributes that map the specific options for OVH and the DNS record itself
 type Config struct {
 	OVH    OVHConfig    `json:"ovh"`
 	Record RecordConfig `json:"record"`
 }
 
+// The OVHConfig type maps the configuration for your OVH application
 type OVHConfig struct {
 	Endpoint          string `json:"endpoint"`
 	ApplicationSecret string `json:"application_secret"`
@@ -74,12 +76,14 @@ type OVHConfig struct {
 	ConsumerKey       string `json:"consumer_key"`
 }
 
+// The RecordConfig type just maps the DNS record configuration
 type RecordConfig struct {
 	SubDomain  string `json:"subDomain"`
 	Zone       string `json:"zone"`
 	RecordType string `json:"recordType"`
 }
 
+// loadConfig parses and loads the config. It returns a Config object type and nil as error in case everything went OK. It should return an empty instance of a Config object with an error in case something fails
 func loadConfig(file string) (Config, error) {
 	f, err := os.Open(file)
 	if err != nil {
@@ -99,7 +103,7 @@ func loadConfig(file string) (Config, error) {
 	}
 
 	if config.Record.SubDomain == "" || config.Record.Zone == "" || config.Record.RecordType == "" || config.OVH.ApplicationKey == "" || config.OVH.ApplicationSecret == "" || config.OVH.ConsumerKey == "" || config.OVH.Endpoint == "" {
-		var err = errors.New("DERP! Please check config file, somehting's missing!")
+		var err = errors.New("derp, check config file because somehting's missing")
 		return Config{}, err
 	}
 
