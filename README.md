@@ -2,6 +2,8 @@
 
 The derpest dynamic DNS updater on the derp web.
 
+[![Build Status](https://travis-ci.org/bheras/derpDNS.svg?branch=master)](https://travis-ci.org/bheras/derpDNS) [![Go Report Card](https://goreportcard.com/badge/github.com/bheras/derpDNS)](https://goreportcard.com/report/github.com/bheras/derpDNS)
+
 ## Description
 
 derpDNS simply updates a DNS record of the type you decide. It's main purpose is to dynamically update a single A record making it point to an IP, using **OVH** API. Think of it as a clone of a <put_your_dyndns_provider_here> client for OVH customers.
