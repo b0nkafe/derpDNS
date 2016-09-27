@@ -6,9 +6,9 @@ The derpest dynamic DNS updater on the derp web.
 
 ## Description
 
-derpDNS simply updates a DNS record of the type you decide. It's main purpose is to dynamically update a single A record making it point to an IP, using **OVH** API. Think of it as a clone of a <put_your_dyndns_provider_here> client for OVH customers.
+derpDNS simply updates a DNS record of the type you decide. Its main purpose is to dynamically update a single A record making it point to an IP (or another name if updating a CNAME), using **OVH** API. Think of it as a clone of a <put_your_dyndns_provider_here> client for OVH customers.
 
-derpDNS is expected to be run in a scheduled task. Below you'll find detailed instructions about how to schedule a task on macOS, Linux and ~~Windows~~. They should work even if no user is logged in.
+derpDNS is expected to run in a scheduled task. Below you'll find detailed instructions about how to schedule a task on macOS, Linux and ~~Windows~~. They should work even if no user is logged in.
 
 ## Installation
 
@@ -79,7 +79,7 @@ All right, let's explain what we did here:
 3. It will execute `/path/to/derpDNS/binary` with `/path/to/derpDNS/config` as argument.
 4. We tell launchd that the program should run right after we load the `LaunchDaemon` with the key `RunAtLoad`
 5. The task will run every hour (3600 secs)
-6. As `derpDNS` spits everything out to STDERR, a key named `StandardErrorPath` tells launchd where STDERR will be logged for `derpDNS`. In this case, you will have a log containing every bit of output on `/tmp/derpDNS.log` 
+6. As `derpDNS` spits everything out to STDERR, a key named `StandardErrorPath` tells `launchd` where STDERR will be logged for `derpDNS`. In this case, you will have a log containing every bit of output on `/tmp/derpDNS.log` 
 
 
 Now, once our LaunchDaemon is set up, we should tell `launchd` to launch it:
