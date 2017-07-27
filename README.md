@@ -13,7 +13,7 @@ derpDNS is expected to run in a scheduled task. Below you'll find detailed instr
 ## Installation
 
 ```
-% go get github.com/bheras/derpDNS
+% go get github.com/5ARMALE/derpDNS
 ```
 
 ## Usage
